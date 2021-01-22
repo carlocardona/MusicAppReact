@@ -28,6 +28,42 @@ function chillHop() {
             color: ['#34728F', '#C8DBDF'],
             id: uuidv4(),
             active: false,
+        },
+        {
+            name: 'Lax Incense',
+            cover: 'https://chillhop.com/wp-content/uploads/2021/01/6b1bb8736ee3e972747bc11f312e31cf7f5823e4-1024x1024.jpg',
+            artist: ' Mama Aiuto, Daphné ',
+            audio: 'https://mp3.chillhop.com/serve.php/?mp3=12125',
+            color: ['#633335', '#21362F'],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: 'Sugarless',
+            cover: 'https://chillhop.com/wp-content/uploads/2020/11/8a0c857ddad531279d0757f5362380a6837b1b69-1024x1024.jpg',
+            artist: ' The Field Tapes, Aviino ',
+            audio: 'https://mp3.chillhop.com/serve.php/?mp3=11243',
+            color: ['#31364A', '#EBF1E5'],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: 'Snowstalgia',
+            cover: 'https://chillhop.com/wp-content/uploads/2020/10/0e5bb63f838ff92eeac142aae944e9f678df13c9-1024x1024.jpg',
+            artist: ' invention_ ',
+            audio: 'https://mp3.chillhop.com/serve.php/?mp3=10305',
+            color: ['#D6547A', '#62558B'],
+            id: uuidv4(),
+            active: false,
+        },
+        {
+            name: 'Sleepover',
+            cover: 'https://chillhop.com/wp-content/uploads/2020/09/09fb436604242df99f84b9f359acb046e40d2e9e-1024x1024.jpg',
+            artist: ' Nymano, JK the Sage ',
+            audio: 'https://mp3.chillhop.com/serve.php/?mp3=10130',
+            color: ['#181413', '#776188'],
+            id: uuidv4(),
+            active: false,
         }
     ]
 }
