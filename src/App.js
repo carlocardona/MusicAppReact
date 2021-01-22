@@ -3,7 +3,9 @@ import './styles/app.scss'
 import Player from './components/Player'
 import Song from './components/Song'
 import Library from './components/Library'
-import data from './util'
+import data from './data'
+import Nav from './components/Nav'
+import { playAudio } from "./util"
 
 
 function App() {
@@ -13,11 +15,11 @@ function App() {
   const [songs, setSongs] = useState(data());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
-
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
   });
+  const [libraryStatus, setLibraryStatus] = useState(false);
 
   const timeUpdateHandler = (e) => {
     const current = e.target.currentTime;
@@ -25,8 +27,16 @@ function App() {
     setSongInfo({ ...songInfo, currentTime: current, duration });
   };
 
+  const songEndHandler = async () => {
+    let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+    await setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    playAudio(isPlaying, audioRef);
+    return;
+  };
+
   return (
     <div className="App">
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
       <Player
         audioRef={audioRef}
@@ -34,7 +44,11 @@ function App() {
         isPlaying={isPlaying}
         currentSong={currentSong}
         setSongInfo={setSongInfo}
-        songInfo={songInfo} />
+        songInfo={songInfo} 
+        songs={songs}
+        setCurrentSong={setCurrentSong}
+        setSongs={setSongs}
+        />
 
       <Library
         audioRef={audioRef}
@@ -42,6 +56,7 @@ function App() {
         setCurrentSong={setCurrentSong}
         isPlaying={isPlaying}
         setSongs={setSongs}
+        libraryStatus={libraryStatus}
       />
 
       <audio
@@ -49,6 +64,7 @@ function App() {
         onLoadedMetadata={timeUpdateHandler}
         ref={audioRef}
         src={currentSong.audio}>
+        onEnded={songEndHandler}
       </audio>
     </div>
   );
