@@ -4,7 +4,8 @@ const LibrarySong = ({ song, songs, setCurrentSong, id, audioRef, isPlaying, set
 
     const songSelectHandler = () => {
 
-        setCurrentSong(song);
+        const selectedSong = songs.filter((state) => state.id === id);
+        setCurrentSong(selectedSong[0]);
 
         const newSongs = songs.map((song) => {
             if (song.id === id) {
