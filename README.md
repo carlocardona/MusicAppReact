@@ -1,4 +1,4 @@
-#Music Player
+# Music Player
 
 ![Music App](https://github.com/carlocardona/MusicAppReact/blob/main/Assets/MusicAppReact.gif)
 
